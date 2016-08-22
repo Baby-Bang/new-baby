@@ -1,5 +1,10 @@
 language: node_js
 node_js:
   - "6"
+services:
+  - mongodb
+before_script:
+  - sleep 15
+  - mongo mydb_test --eval 'db.addUser("BbayUser", "hello");'
 
 script: mocha
