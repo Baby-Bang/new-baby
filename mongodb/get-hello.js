@@ -5,7 +5,7 @@ const getHello = (req, res) => {
   MongoClient.connect(DB_CONN_STR, (err, db)=> {
     const collection = db.collection('hello');
     collection.find().toArray(function (err, docs) {
-      res.json(docs[0].hello);
+      res.json(docs);
     });
     db.close();
   });
